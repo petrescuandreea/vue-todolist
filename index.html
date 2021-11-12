@@ -12,7 +12,7 @@
     <!-- istanza app di VUE  -->
     <div id="myapp">
         <ul>
-            <li v-for="task in tasks">
+            <li v-for="task, i in tasks" :class="task.done === 'done' ? 'strikethrough': ''" :key="i">
                 {{task.text}}
             </li>
         </ul>
