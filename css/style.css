@@ -1,10 +1,86 @@
+/* regole generali  */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #deb887;
+}
+
+h1 {
+    color: #3c3c3c;
+    font-size: 60px;
+    text-align: center;
+    text-decoration: underline;
+    margin: 35px;
+}
+
+
+/* container  */
+.container {
+    display: flex;
+    justify-content: center;
+}
+
+.container #list-container {
+    display: inline-block;
+    background-color:rgb(196, 187, 67);
+    padding: 60px 50px;
+}
+
+.container #new-task-container {
+    margin-bottom: 20px;
+}
+
+#new-task-container #user-input , 
+#new-task-container #add {
+    font-size: 20px;
+    border-radius: 15px;
+}
+
+.container #new-task-container #user-input {
+    padding: 5px 10px;
+}
+
+
+.container #new-task-container #add {
+    display: inline-block;
+    background-color: #deb887;
+    cursor: pointer;
+    padding: 8px 10px;
+    margin-left: 15px;
+}
+
+
+.container #new-task-container #add:hover {
+    color: white;
+    background-color: grey;
+}
+
+#list-container ul li {
+    font-size: 25px;
+    border-bottom: 1px solid #000;
+    padding-bottom: 4px;
+    margin-top: 10px;
+}
+
 .strikethrough {
     text-decoration: line-through;
 }
 
+.cross {
+    font-size: 20px;
+}
+
+.check {
+    color: green;
+    font-size: 25px;
+}
+
 .cross, .check {
     display: inline-block;
-    font-size: 10px;
     font-weight: bold;
     cursor: pointer;
     margin-left: 10px;

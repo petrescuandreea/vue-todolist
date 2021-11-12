@@ -9,30 +9,36 @@
 </head>
 <body>
 
+    <h1>TO-DO LIST</h1>
+
     <!-- istanza app di VUE  -->
-    <div id="myapp">
-
-        <!-- inserimento nuovo task  -->
-        <input type="text" v-model="newTask.text" @keyup.enter="addNewTask" placeholder="Inserisci un nuovo task">
-        <button @click="addNewTask">Aggiungi task</button>
-
-
-        <div v-if="tasks.length === 0">
-            Complimenti! Hai completato tutti i task di oggi. Ora puoi dedicarti da altro.
+    <div id="myapp" class="container">
+        <div id="list-container">
+            
+            <!-- inserimento nuovo task  -->
+            <div id=new-task-container>
+                <input id="user-input" type="text" v-model="newTask.text" @keyup.enter="addNewTask" placeholder="Inserisci un nuovo task">
+                <div id="add" @click="addNewTask">Aggiungi task</div>
+            </div>
+    
+    
+            <div v-if="tasks.length === 0">
+                Complimenti	&#128079;&#128079;! Hai completato tutti i task di oggi. Ora puoi dedicarti da altro.
+            </div>
+    
+            <ul v-else>
+                <li v-for="task, i in tasks" :class="task.done === 'true' ? 'strikethrough': ''" :key="i">
+                    {{task.text}}
+                    <div @click="removeTask(i)" class="cross">
+                        &#10060;
+                    </div>
+    
+                    <div @click="addStrikethrough(i)" class="check">
+                        &#10004;
+                    </div>
+                </li> 
+            </ul>
         </div>
-
-        <ul v-else>
-            <li v-for="task, i in tasks" :class="task.done === 'true' ? 'strikethrough': ''" :key="i">
-                {{task.text}}
-                <div @click="removeTask(i)" class="cross">
-                    &#10060;
-                </div>
-
-                <div @click="addStrikethrough(i)" class="check">
-                    &#10004;
-                </div>
-            </li> 
-        </ul>
 
     </div>
     
