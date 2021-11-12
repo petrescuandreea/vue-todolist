@@ -13,11 +13,15 @@
     <div id="myapp">
 
         <!-- inserimento nuovo task  -->
-        <input type="text" v-model="newTask.text" placeholder="Inserisci un nuovo task">
+        <input type="text" v-model="newTask.text" @keyup.enter="addNewTask" placeholder="Inserisci un nuovo task">
         <button @click="addNewTask">Aggiungi task</button>
 
 
-        <ul>
+        <div v-if="tasks.length === 0">
+            Complimenti! Hai completato tutti i task di oggi. Ora puoi dedicarti da altro.
+        </div>
+
+        <ul v-else>
             <li v-for="task, i in tasks" :class="task.done === 'true' ? 'strikethrough': ''" :key="i">
                 {{task.text}}
                 <div @click="removeTask(i)" class="cross">
