@@ -37,11 +37,15 @@ var app = new Vue(
             },
 
             addStrikethrough(index) {
-                this.tasks[index].done='true'
+                if(this.tasks[index].done === 'false') {
+                    this.tasks[index].done = 'true'
+                } else {
+                    this.tasks[index].done='false'
+                }
             },
 
             addNewTask() {
-                if(this.newTask.text !== '' && this.newTask.text !== ' ') {
+                if(this.newTask.text !== '' && this.newTask.text !== '  ') {
                     this.tasks.push(this.newTask);
                     this.newTask = "";
                 }
