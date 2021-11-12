@@ -12,9 +12,16 @@
     <!-- istanza app di VUE  -->
     <div id="myapp">
         <ul>
-            <li v-for="task, i in tasks" :class="task.done === 'done' ? 'strikethrough': ''" :key="i">
+            <li v-for="task, i in tasks" :class="task.done === 'true' ? 'strikethrough': ''" :key="i">
                 {{task.text}}
-            </li>
+                <div @click=removeTask(i) class="cross">
+                    &#10060;
+                </div>
+
+                <div @click=addStrikethrough(i) class="check">
+                    &#10004;
+                </div>
+            </li> 
         </ul>
 
     </div>

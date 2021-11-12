@@ -19,15 +19,27 @@ TRACCIA:
 var app = new Vue(
     {
         el: '#myapp',
+
         data: {
             tasks: [
                 {text: 'fare la spesa' , done: 'false'},
-                {text: 'allenarsi' , done: 'done'},
+                {text: 'allenarsi' , done: 'true'},
                 {text: 'cucinare' , done: 'false'},
-                {text: 'leggere' , done: 'done'},
+                {text: 'portare il cane a spasso' , done: 'true'},
             ]
 
+        },
+
+        methods: {
+            removeTask(index) {
+                this.tasks.splice(index,1)
+            },
+
+            addStrikethrough(index) {
+                this.tasks[index].done='true'
+            }
         }
+
 
     
 });
