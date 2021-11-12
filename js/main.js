@@ -41,7 +41,7 @@ var app = new Vue(
             },
 
             addNewTask() {
-                if(this.newTask.text !== '') {
+                if(this.newTask.text !== '' && this.newTask.text !== ' ') {
                     this.tasks.push(this.newTask);
                     this.newTask = "";
                 }
