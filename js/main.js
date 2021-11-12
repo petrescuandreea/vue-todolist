@@ -41,10 +41,10 @@ var app = new Vue(
             },
 
             addNewTask() {
-                this.tasks.push(this.newTask);
-                // if(this.newTask !== '') {
-                //     this.newTask = "";
-                // }
+                if(this.newTask.text !== '') {
+                    this.tasks.push(this.newTask);
+                    this.newTask = "";
+                }
             }
         }
 
