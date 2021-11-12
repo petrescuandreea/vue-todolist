@@ -21,6 +21,7 @@ var app = new Vue(
         el: '#myapp',
 
         data: {
+            newTask: {text:"", done: 'false'},
             tasks: [
                 {text: 'fare la spesa' , done: 'false'},
                 {text: 'allenarsi' , done: 'true'},
@@ -37,6 +38,13 @@ var app = new Vue(
 
             addStrikethrough(index) {
                 this.tasks[index].done='true'
+            },
+
+            addNewTask() {
+                this.tasks.push(this.newTask);
+                // if(this.newTask !== '') {
+                //     this.newTask = "";
+                // }
             }
         }
 
