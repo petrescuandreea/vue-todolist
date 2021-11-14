@@ -22,19 +22,20 @@
             </div>
     
     
-            <div v-if="tasks.length === 0">
+            <div id="list-done" v-if="tasks.length === 0">
                 Complimenti	&#128079;&#128079;! Hai completato tutti i task di oggi. Ora puoi dedicarti da altro.
             </div>
     
             <ul v-else>
                 <li v-for="task, i in tasks" :class="task.done === 'true' ? 'strikethrough': ''" :key="i">
                     {{task.text}}
-                    <div @click="removeTask(i)" class="cross">
-                        &#10060;
-                    </div>
-    
+                    
                     <div @click="addStrikethrough(i)" class="check">
                         &#10004;
+                    </div>
+
+                    <div @click="removeTask(i)" class="cross">
+                        &#10060;
                     </div>
                 </li> 
             </ul>
